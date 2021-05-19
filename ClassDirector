@@ -1,0 +1,19 @@
+
+public class ClassDirector extends Staff {
+	
+	private Course course;
+
+	public ClassDirector() {
+		// constructor without parameters, but the constructor of Staff is parameterised, so we need to overload it.
+	}
+	
+	// creatReq method to store courseName and TeachingReq into Course class
+	public void creatReq(String courseName, TeachingReq teachingReq) {
+		course = new Course(courseName);
+		course.addReq(teachingReq);
+	}
+	
+	public Course getCourse() {
+		return course;
+	}
+}

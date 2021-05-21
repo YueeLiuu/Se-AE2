@@ -1,0 +1,34 @@
+public class ClassDirector extends Staff {
+
+    private String name;
+    private int id;
+    private Course course; //indicate what course the class director is responsible for
+
+    public ClassDirector(String name, int id) {
+        super(name, id);
+        // constructor without parameters, but the constructor of Staff is parameterised, so we need to overload it.
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    // creatReq method to store courseName and TeachingReq into Course class
+    public static void createTeaReqList(Course course, TeachingReq teachingReq, Uni uni) throws ItemInList {
+        if (uni.inList(course)) {
+            for (Course i : uni.getCourses()) {
+                if (i.getName().equals(course.getName())) {
+                    i.addTeaReq(teachingReq);
+                }
+            }
+        } else {
+            course.addTeaReq(teachingReq);
+            uni.add(course);
+        }
+
+    }
+}
